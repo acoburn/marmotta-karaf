@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" name="marmotta-${project.version}">
+    <feature name="ldpath" version="${project.version}">
+        <feature version="${project.version}">marmotta-commons</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldpath-api/${project.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/ldpath-core-bundle/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldpath-template" version="${project.version}">
+        <feature version="${project.version}">ldpath</feature>
+
+        <bundle dependency="true">mvn:org.freemarker/freemarker/${freemarker.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/ldpath-template/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldpath-backend-linkeddata" version="${project.version}">
+        <feature version="${project.version}">ldpath</feature>
+        <feature version="${project.version}">ldcache</feature>
+        <feature version="${project.version}">ldcache-backend-infinispan</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldpath-backend-linkeddata/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldpath-backend-sesame" version="${project.version}">
+        <feature version="${project.version}">ldpath</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldpath-backend-sesame/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldpath-backend-file" version="${project.version}">
+        <feature version="${project.version}">ldpath</feature>
+        <feature version="${project.version}">ldpath-backend-sesame</feature>
+
+        <bundle dependency="true">mvn:commons-cli/commons-cli/${commons-cli.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/ldpath-backend-file/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldcache" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldcache-api/${project.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/ldcache-core/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldcache-backend-file" version="${project.version}">
+        <feature version="${project.version}">ldcache</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldcache-backend-file/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldcache-backend-infinispan" version="${project.version}">
+        <feature version="${project.version}">ldcache</feature>
+        <feature>transaction</feature>
+
+        <bundle dependency="true">mvn:org.infinispan/infinispan-core/${infinispan.version}</bundle>
+        <bundle dependency="true">mvn:org.infinispan/infinispan-commons/${infinispan.version}</bundle>
+        <bundle dependency="true">mvn:org.jboss.logging/jboss-logging/${jboss-logging.version}</bundle>
+        <bundle dependency="true">wrap:mvn:org.jboss.marshalling/jboss-marshalling/${jboss-marshalling.version}</bundle>
+        <bundle dependency="true">mvn:org.jgroups/jgroups/${jgroups.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldcache-backend-infinispan/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient" version="${project.version}">
+        <feature version="${project.version}">marmotta-commons</feature>
+
+        <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java-sesame/${jsonld.version}</bundle>
+        <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java/${jsonld.version}</bundle>
+
+        <bundle dependency="true">wrap:mvn:commons-httpclient/commons-httpclient/${commons-httpclient.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpclient-osgi/${httpclient.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpcore-osgi/${httpcore.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-api/${project.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/ldclient-core/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-facebook" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-facebook/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-html" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle dependency="true">mvn:org.jsoup/jsoup/${jsoup.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-html/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-ldap" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle dependency="true">wrap:mvn:org.apache.directory.api/api-all/${directory-api.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-ldap/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-mediawiki" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle dependency="true">wrap:mvn:org.jdom/jdom2/${jdom.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-mediawiki/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-phpbb" version="${project.version}">
+        <feature version="${project.version}">ldclient-provider-html</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-phpbb/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-rdf" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-rdf/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-xml" version="${project.version}">
+        <feature version="${project.version}">ldclient</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-xml/${project.version}</bundle>
+    </feature>
+
+    <feature name="ldclient-provider-vimeo" version="${project.version}">
+        <feature version="${project.version}">ldclient-provider-xml</feature>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-vimeo/${project.version}</bundle>
+    </feature>
+
+    <feature name="marmotta-commons" version="${project.version}">
+        <feature prerequisite="true" dependency="false">wrap</feature>
+
+        <bundle dependency="true">mvn:org.apache.commons/commons-lang3/${commons-lang.version}</bundle>
+        <bundle dependency="true">mvn:commons-beanutils/commons-beanutils/${commons-beanutils.version}</bundle>
+        <bundle dependency="true">mvn:commons-codec/commons-codec/${commons-codec.version}</bundle>
+        <bundle dependency="true">mvn:commons-collections/commons-collections/${commons-collections.version}</bundle>
+        <bundle dependency="true">mvn:commons-digester/commons-digester/${commons-digester.version}</bundle>
+        <bundle dependency="true">mvn:commons-io/commons-io/${commons-io.version}</bundle>
+        <bundle dependency="true">mvn:commons-validator/commons-validator/${commons-validator.version}</bundle>
+
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
+
+        <bundle dependency="true">mvn:org.openrdf.sesame/sesame-runtime-osgi/${sesame.version}</bundle>
+        <bundle dependency="true">mvn:joda-time/joda-time/${joda-time.version}</bundle>
+        <bundle dependency="true">mvn:com.google.guava/guava/${guava.version}</bundle>
+        <bundle dependency="true">wrap:mvn:au.com.bytecode/opencsv/${opencsv.version}</bundle>
+
+        <!-- sesame 2.7.13 has a runtime dependency on logback -->
+        <bundle dependency="true">mvn:ch.qos.logback/logback-classic/${logback.version}</bundle>
+        <bundle dependency="true">mvn:ch.qos.logback/logback-core/${logback.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/marmotta-model-vocabs/${project.version}</bundle>
+        <bundle>mvn:org.apache.marmotta/marmotta-commons/${project.version}</bundle>
+    </feature>
+
+</features>
