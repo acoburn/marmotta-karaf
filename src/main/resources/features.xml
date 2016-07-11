@@ -22,6 +22,19 @@
         <bundle>mvn:org.apache.marmotta/ldpath-backend-linkeddata/${project.version}</bundle>
     </feature>
 
+    <feature name="ldpath-backend-jena" version="${project.version}">
+        <feature version="${project.version}">ldpath</feature>
+
+        <bundle dependency="true">mvn:org.apache.jena/jena-osgi/${jena-osgi.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpclient-osgi/${httpclient.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpcore-osgi/${httpcore.version}</bundle>
+        <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java/${jsonld.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.commons/commons-csv/${commons-csv.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.thrift/libthrift/${thrift.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldpath-backend-jena/${project.version}</bundle>
+    </feature>
+
     <feature name="ldpath-backend-sesame" version="${project.version}">
         <feature version="${project.version}">ldpath</feature>
 
