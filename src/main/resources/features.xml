@@ -145,6 +145,14 @@
         <bundle>mvn:org.apache.marmotta/ldclient-provider-vimeo/${project.version}</bundle>
     </feature>
 
+    <feature name="ldclient-provider-youtube" version="${project.version}">
+        <feature version="${project.version}">ldclient-provider-xml</feature>
+
+        <bundle dependency="true">wrap:mvn:org.jdom/jdom2/${jdom.version}</bundle>
+
+        <bundle>mvn:org.apache.marmotta/ldclient-provider-youtube/${project.version}</bundle>
+    </feature>
+
     <feature name="marmotta-commons" version="${project.version}">
         <feature prerequisite="true" dependency="false">wrap</feature>
 
