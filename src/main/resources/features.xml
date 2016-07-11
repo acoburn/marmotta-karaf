@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="marmotta-${project.version}">
     <feature name="ldpath" version="${project.version}">
+        <details>Installs the LDPath API and core libraries</details>
+
         <feature version="${project.version}">marmotta-commons</feature>
 
         <bundle>mvn:org.apache.marmotta/ldpath-api/${project.version}</bundle>
@@ -8,13 +10,18 @@
     </feature>
 
     <feature name="ldpath-template" version="${project.version}">
+        <details>Installs the LDPath Template library</details>
+
         <feature version="${project.version}">ldpath</feature>
 
         <bundle dependency="true">mvn:org.freemarker/freemarker/${freemarker.version}</bundle>
+
         <bundle>mvn:org.apache.marmotta/ldpath-template/${project.version}</bundle>
     </feature>
 
     <feature name="ldpath-backend-linkeddata" version="${project.version}">
+        <details>Installs the Linked Data backend for use with the LDPath library</details>
+
         <feature version="${project.version}">ldpath</feature>
         <feature version="${project.version}">ldcache</feature>
         <feature version="${project.version}">ldcache-backend-infinispan</feature>
@@ -23,6 +30,8 @@
     </feature>
 
     <feature name="ldpath-backend-jena" version="${project.version}">
+        <details>Installs the Jena backend for use with the LDPath library</details>
+
         <feature version="${project.version}">ldpath</feature>
 
         <bundle dependency="true">mvn:org.apache.jena/jena-osgi/${jena-osgi.version}</bundle>
@@ -36,12 +45,16 @@
     </feature>
 
     <feature name="ldpath-backend-sesame" version="${project.version}">
+        <details>Installs the Sesame backend for use with the LDPath library</details>
+
         <feature version="${project.version}">ldpath</feature>
 
         <bundle>mvn:org.apache.marmotta/ldpath-backend-sesame/${project.version}</bundle>
     </feature>
 
     <feature name="ldpath-backend-file" version="${project.version}">
+        <details>Installs a file backend for use with the LDPath library</details>
+
         <feature version="${project.version}">ldpath</feature>
         <feature version="${project.version}">ldpath-backend-sesame</feature>
 
@@ -50,6 +63,8 @@
     </feature>
 
     <feature name="ldcache" version="${project.version}">
+        <details>Installs the LDCache API and core library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle>mvn:org.apache.marmotta/ldcache-api/${project.version}</bundle>
@@ -57,12 +72,16 @@
     </feature>
 
     <feature name="ldcache-backend-file" version="${project.version}">
+        <details>Installs the file backend for use with the LDCache library</details>
+
         <feature version="${project.version}">ldcache</feature>
 
         <bundle>mvn:org.apache.marmotta/ldcache-backend-file/${project.version}</bundle>
     </feature>
 
     <feature name="ldcache-backend-infinispan" version="${project.version}">
+        <details>Installs the infinispan backend for use with the LDCache library</details>
+
         <feature version="${project.version}">ldcache</feature>
         <feature>transaction</feature>
 
@@ -76,6 +95,8 @@
     </feature>
 
     <feature name="ldclient" version="${project.version}">
+        <details>Installs the LDClient API and core libraries</details>
+
         <feature version="${project.version}">marmotta-commons</feature>
 
         <bundle dependency="true">mvn:com.github.jsonld-java/jsonld-java-sesame/${jsonld.version}</bundle>
@@ -90,6 +111,8 @@
     </feature>
 
     <feature name="ldclient-provider-facebook" version="${project.version}">
+        <details>Installs the Facebook Graph provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
         <bundle dependency="true">mvn:org.apache.marmotta/marmotta-model-vocabs/${project.version}</bundle>
 
@@ -97,6 +120,8 @@
     </feature>
 
     <feature name="ldclient-provider-html" version="${project.version}">
+        <details>Installs the HTML provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle dependency="true">mvn:org.jsoup/jsoup/${jsoup.version}</bundle>
@@ -105,6 +130,8 @@
     </feature>
 
     <feature name="ldclient-provider-ldap" version="${project.version}">
+        <details>Installs the LDAP provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle dependency="true">wrap:mvn:org.apache.directory.api/api-all/${directory-api.version}</bundle>
@@ -114,6 +141,8 @@
     </feature>
 
     <feature name="ldclient-provider-mediawiki" version="${project.version}">
+        <details>Installs the MediaWiki provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle dependency="true">wrap:mvn:org.jdom/jdom2/${jdom.version}</bundle>
@@ -122,30 +151,40 @@
     </feature>
 
     <feature name="ldclient-provider-phpbb" version="${project.version}">
+        <details>Installs the PHPbb provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient-provider-html</feature>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-phpbb/${project.version}</bundle>
     </feature>
 
     <feature name="ldclient-provider-rdf" version="${project.version}">
+        <details>Installs the RDF provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-rdf/${project.version}</bundle>
     </feature>
 
     <feature name="ldclient-provider-xml" version="${project.version}">
+        <details>Installs the XML provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient</feature>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-xml/${project.version}</bundle>
     </feature>
 
     <feature name="ldclient-provider-vimeo" version="${project.version}">
+        <details>Installs the Vimeo provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient-provider-xml</feature>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-vimeo/${project.version}</bundle>
     </feature>
 
     <feature name="ldclient-provider-youtube" version="${project.version}">
+        <details>Installs the Youtube provider for use with the LDClient library</details>
+
         <feature version="${project.version}">ldclient-provider-xml</feature>
 
         <bundle dependency="true">wrap:mvn:org.jdom/jdom2/${jdom.version}</bundle>
@@ -154,6 +193,8 @@
     </feature>
 
     <feature name="marmotta-commons" version="${project.version}">
+        <details>Installs the Marmotta Commons library</details>
+
         <feature prerequisite="true" dependency="false">wrap</feature>
 
         <bundle dependency="true">mvn:org.apache.commons/commons-lang3/${commons-lang.version}</bundle>
