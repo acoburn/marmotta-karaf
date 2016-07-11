@@ -78,6 +78,7 @@
 
     <feature name="ldclient-provider-facebook" version="${project.version}">
         <feature version="${project.version}">ldclient</feature>
+        <bundle dependency="true">mvn:org.apache.marmotta/marmotta-model-vocabs/${project.version}</bundle>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-facebook/${project.version}</bundle>
     </feature>
@@ -94,6 +95,7 @@
         <feature version="${project.version}">ldclient</feature>
 
         <bundle dependency="true">wrap:mvn:org.apache.directory.api/api-all/${directory-api.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.marmotta/marmotta-model-vocabs/${project.version}</bundle>
 
         <bundle>mvn:org.apache.marmotta/ldclient-provider-ldap/${project.version}</bundle>
     </feature>
@@ -154,7 +156,6 @@
         <bundle dependency="true">mvn:ch.qos.logback/logback-classic/${logback.version}</bundle>
         <bundle dependency="true">mvn:ch.qos.logback/logback-core/${logback.version}</bundle>
 
-        <bundle>mvn:org.apache.marmotta/marmotta-model-vocabs/${project.version}</bundle>
         <bundle>mvn:org.apache.marmotta/marmotta-commons/${project.version}</bundle>
     </feature>
 
